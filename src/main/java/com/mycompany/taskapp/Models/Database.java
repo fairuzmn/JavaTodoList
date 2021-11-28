@@ -13,12 +13,18 @@ import java.util.ArrayList;
 public class Database {
 
     ArrayList<Task> dataTask;
+    ArrayList<User> dataUser;
 
     public Database() {
         dataTask = new ArrayList<Task>();
+        dataUser = new ArrayList<User>();
     }
 
     public ArrayList<Task> getData() {
         return dataTask;
+    }
+
+    public ArrayList<User> getUser() {
+        return dataUser;
     }
 }

@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.taskapp.Views;
+package com.mycompany.taskapp.Views.Task;
 
+import com.mycompany.taskapp.Views.Task.TaskView;
 import com.mycompany.taskapp.Controllers.TaskController;
 import com.mycompany.taskapp.Models.Task;
 import javax.swing.JOptionPane;
@@ -13,7 +14,7 @@ import javax.swing.JOptionPane;
  * @author Parasit
  */
 public class TaskUpdate extends javax.swing.JFrame {
-    
+
     TaskController taskController;
     TaskView taskView;
     Task task;
@@ -86,7 +87,7 @@ public class TaskUpdate extends javax.swing.JFrame {
                         .addComponent(btnSave)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnCancle)))
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,7 +106,7 @@ public class TaskUpdate extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave)
                     .addComponent(btnCancle))
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -116,7 +117,7 @@ public class TaskUpdate extends javax.swing.JFrame {
         String id = taskController.readAll().size() + 1 + "";
         String judul = JFJudul.getText();
         String deskripsi = JFDeskripsi.getText();
-        if (judul.equals("") || deskripsi.equals("")) {
+        if (judul.isEmpty() || deskripsi.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Data Masih Kosong!");
             return;
         }
@@ -132,13 +133,13 @@ public class TaskUpdate extends javax.swing.JFrame {
         // TODO add your handling code here:
         resetClose();
     }//GEN-LAST:event_btnCancleActionPerformed
-    
+
     private void resetClose() {
         JFJudul.setText("");
         JFDeskripsi.setText("");
         this.setVisible(false);
     }
-    
+
     public void setData(Task _task) {
         task = _task;
         JFJudul.setText(task.getJudul());

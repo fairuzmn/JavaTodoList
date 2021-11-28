@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.taskapp.Views;
+package com.mycompany.taskapp.Views.Task;
 
+import com.mycompany.taskapp.Views.Task.TaskView;
 import com.mycompany.taskapp.Controllers.TaskController;
 import com.mycompany.taskapp.Models.Task;
 import javax.swing.JOptionPane;
@@ -85,7 +86,7 @@ public class TaskCreate extends javax.swing.JFrame {
                         .addComponent(btnSave)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnCancle)))
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,7 +105,7 @@ public class TaskCreate extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave)
                     .addComponent(btnCancle))
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -115,7 +116,7 @@ public class TaskCreate extends javax.swing.JFrame {
         String id = taskController.readAll().size() + 1 + "";
         String judul = JFJudul.getText();
         String deskripsi = JFDeskripsi.getText();
-        if (judul.equals("") || deskripsi.equals("")) {
+        if (judul.isEmpty() || deskripsi.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Data Masih Kosong!");
             return;
         }

@@ -5,55 +5,65 @@
 package com.mycompany.taskapp.Controllers;
 
 import com.mycompany.taskapp.Models.Database;
-import com.mycompany.taskapp.Models.Task;
+import com.mycompany.taskapp.Models.User;
 import java.util.ArrayList;
 
 /**
  *
  * @author Parasit
  */
-public class TaskController {
+public class UserController {
 
     private Database database;
 
-    public TaskController() {
+    public UserController() {
         database = new Database();
     }
 
-    public void save(Task task) {
-        database.getData().add(task);
+    public void save(User user) {
+        database.getUser().add(user);
     }
 
-    public void update(Task task) {
-        for (int i = 0; i < database.getData().size(); i++) {
-            Task oldTask = database.getData().get(i);
-            if (oldTask.getId().equals(task.getId())) {
-                database.getData().set(i, task);
+    public void update(User user) {
+        for (int i = 0; i < database.getUser().size(); i++) {
+            User oldUser = database.getUser().get(i);
+            if (oldUser.getId().equals(user.getId())) {
+                database.getUser().set(i, user);
             }
         }
     }
 
-    public void delete(Task task) {
-        for (int i = 0; i < database.getData().size(); i++) {
-            Task oldTask = database.getData().get(i);
-            if (oldTask.getId().equals(task.getId())) {
-                database.getData().remove(i);
+    public void delete(User user) {
+        for (int i = 0; i < database.getUser().size(); i++) {
+            User oldUser = database.getUser().get(i);
+            if (oldUser.getId().equals(user.getId())) {
+                database.getUser().remove(i);
             }
         }
     }
 
-    public Task readById(String id) {
-        for (int i = 0; i < database.getData().size(); i++) {
-            Task oldTask = database.getData().get(i);
-            if (oldTask.getId().equals(id)) {
-                return oldTask;
+    public User readById(String id) {
+        for (int i = 0; i < database.getUser().size(); i++) {
+            User oldUser = database.getUser().get(i);
+            if (oldUser.getId().equals(id)) {
+                return oldUser;
             }
         }
 
         return null;
     }
 
-    public ArrayList<Task> readAll() {
-        return database.getData();
+    public User login(String username, String password) {
+        for (int i = 0; i < database.getUser().size(); i++) {
+            User oldUser = database.getUser().get(i);
+            if (oldUser.getUsername().equals(username) && oldUser.getPassword().equals(password)) {
+                return oldUser;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<User> readAll() {
+        return database.getUser();
     }
 }
